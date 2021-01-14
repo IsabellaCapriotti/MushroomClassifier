@@ -122,8 +122,8 @@ def train_model(epochs, learning_rate, input_data, input_labels):
         loss = compute_loss(input_labels, predictions)
         
         # Debug: print loss every 300th epoch
-        if i % 300 == 0:
-            print('Loss on epoch', i+1, 'is', loss)
+        # if i % 300 == 0:
+        #     print('Loss on epoch', i+1, 'is', loss)
         
         # Back propagation
         dz, db, dw = back_prop(input_data, input_labels, predictions)
@@ -250,12 +250,10 @@ while isGameInProgress:
     # Get model prediction for new mushroom 
     newMushroom = newMushroom.to_numpy().T
     prediction = predict(newMushroom, final_weights, final_bias)
-    print(prediction)
     if prediction >= .5:
         prediction = 1
     else:
         prediction = 0
-    print(prediction)
 
     
     # Get user input for whether or not to eat the mushroom
